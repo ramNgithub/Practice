@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Details</title>
+  <style>
+   
+body {
+  font-family: Arial, sans-serif;
+}
+
+form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+  </style>
+ 
+</head>
+<body>
+
+
+
+  <h1>Personal Details</h1>
+
+  <form id="personalDetailsForm" onsubmit="submitForm(event)">
+    <label for="fullNameInput">Full Name:</label>
+    <input id="fullNameInput" type="text" placeholder="Enter your full name" required>
+
+    <label for="emailInput">Email:</label>
+    <input id="emailInput" type="email" placeholder="Enter your email" required>
+
+    <label for="mobileInput">Mobile Number:</label>
+    <input id="mobileInput" type="tel" placeholder="Enter your mobile number" pattern="[0-9]{10}" required>
+
+    <label for="addressInput">Address:</label>
+    <input id="addressInput" type="text" placeholder="Enter your address">
+
+    <label for="cityInput">City:</label>
+    <input id="cityInput" type="text" placeholder="Enter your city">
+
+    <label for="stateInput">State:</label>
+    <input id="stateInput" type="text" placeholder="Enter your state">
+
+    <label for="zipCodeInput">Zip Code:</label>
+    <input id="zipCodeInput" type="text" placeholder="Enter your zip code">
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    function submitForm(event) {
+      event.preventDefault();
+  
+      const fullNameInput = document.getElementById("fullNameInput");
+      const emailInput = document.getElementById("emailInput");
+      const mobileInput = document.getElementById("mobileInput");
+      const addressInput = document.getElementById("addressInput");
+      const cityInput = document.getElementById("cityInput");
+      const stateInput = document.getElementById("stateInput");
+      const zipCodeInput = document.getElementById("zipCodeInput");
+  
+     
+      if (!validateEmail(emailInput.value)) {
+        alert("Invalid email format. Please enter a valid email address.");
+        return;
+      }
+  
+      if (mobileInput.value.length !== 10) {
+        alert("Invalid mobile number. Please enter a 10-digit mobile number.");
+        return;
+      }
+  
+     
+      const isConfirmed = confirm("Thank you for submitting your details! Click OK to go back to the homepage.");
+  
+      
+      if (isConfirmed) {
+       
+        window.location.href = "index.html";
+      }
+   
+    }
+  
+    function validateEmail(email) {
+     
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+  </script>
+  
+
+ 
+
+</body>
+</html>
